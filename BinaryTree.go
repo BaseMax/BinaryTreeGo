@@ -35,6 +35,15 @@ func NewGeneralTree() *GeneralTree {
 	return &GeneralTree{}
 }
 
+// Create a new tree and insert the given values (in order, root, left and right), number of arguments in the function is not limited
+func NewGeneralTreeWithNumbers(values ...interface{}) *GeneralTree {
+	tree := NewGeneralTree()
+	for _, value := range values {
+		tree.Insert(value)
+	}
+	return tree
+}
+
 // Insert a new node into the binary tree
 func (tree *GeneralTree) Insert(value interface{}) {
 	if tree.Root == nil {
@@ -809,4 +818,11 @@ func main() {
 	// Print the number of half nodes in the tree
 	fmt.Println("Half Nodes")
 	fmt.Println(tree2.HalfNodes())
+
+	// Create another tree with the helper function
+	tree3 := NewGeneralTreeWithNumbers(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18)
+
+	// Print the binary tree in level order
+	fmt.Println("Level Order")
+	tree3.LevelOrder()
 }
