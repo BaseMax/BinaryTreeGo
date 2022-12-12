@@ -11,6 +11,8 @@
 
 package main
 
+import "fmt"
+
 // Type for storing a node of a binary tree
 type Node struct {
 	Value interface{}
@@ -392,4 +394,317 @@ func (node *Node) Count() int {
 	} else {
 		return node.Left.Count() + node.Right.Count() + 1
 	}
+}
+
+// Print the binary tree in pre-order
+func (tree *GeneralTree) PreOrder() {
+	if tree.Root == nil {
+		return
+	} else {
+		tree.Root.PreOrder()
+	}
+}
+
+func (node *Node) PreOrder() {
+	if node == nil {
+		return
+	} else {
+		fmt.Println(node.Value)
+		node.Left.PreOrder()
+		node.Right.PreOrder()
+	}
+}
+
+// Print the binary tree in in-order
+func (tree *GeneralTree) InOrder() {
+	if tree.Root == nil {
+		return
+	} else {
+		tree.Root.InOrder()
+	}
+}
+
+func (node *Node) InOrder() {
+	if node == nil {
+		return
+	} else {
+		node.Left.InOrder()
+		fmt.Println(node.Value)
+		node.Right.InOrder()
+	}
+}
+
+// Print the binary tree in post-order
+func (tree *GeneralTree) PostOrder() {
+	if tree.Root == nil {
+		return
+	} else {
+		tree.Root.PostOrder()
+	}
+}
+
+func (node *Node) PostOrder() {
+	if node == nil {
+		return
+	} else {
+		node.Left.PostOrder()
+		node.Right.PostOrder()
+		fmt.Println(node.Value)
+	}
+}
+
+// Print the binary tree in level-order
+func (tree *GeneralTree) LevelOrder() {
+	if tree.Root == nil {
+		return
+	} else {
+		tree.Root.LevelOrder()
+	}
+}
+
+func (node *Node) LevelOrder() {
+	if node == nil {
+		return
+	} else {
+		queue := []Node{*node}
+		for len(queue) > 0 {
+			current := queue[0]
+			queue = queue[1:]
+			fmt.Println(current.Value)
+			if current.Left != nil {
+				queue = append(queue, *current.Left)
+			}
+			if current.Right != nil {
+				queue = append(queue, *current.Right)
+			}
+		}
+	}
+}
+
+// Print the binary tree in reverse level-order
+func (tree *GeneralTree) ReverseLevelOrder() {
+	if tree.Root == nil {
+		return
+	} else {
+		tree.Root.ReverseLevelOrder()
+	}
+}
+
+func (node *Node) ReverseLevelOrder() {
+	if node == nil {
+		return
+	} else {
+		queue := []Node{*node}
+		for len(queue) > 0 {
+			current := queue[0]
+			queue = queue[1:]
+			fmt.Println(current.Value)
+			if current.Right != nil {
+				queue = append(queue, *current.Right)
+			}
+			if current.Left != nil {
+				queue = append(queue, *current.Left)
+			}
+		}
+	}
+}
+
+// Print the binary tree in spiral order
+func (tree *GeneralTree) SpiralOrder() {
+	if tree.Root == nil {
+		return
+	} else {
+		tree.Root.SpiralOrder()
+	}
+}
+
+func (node *Node) SpiralOrder() {
+	if node == nil {
+		return
+	} else {
+		stack1 := []Node{*node}
+		stack2 := []Node{}
+		for len(stack1) > 0 || len(stack2) > 0 {
+			for len(stack1) > 0 {
+				current := stack1[len(stack1)-1]
+				stack1 = stack1[:len(stack1)-1]
+				fmt.Println(current.Value)
+				if current.Left != nil {
+					stack2 = append(stack2, *current.Left)
+				}
+				if current.Right != nil {
+					stack2 = append(stack2, *current.Right)
+				}
+			}
+			for len(stack2) > 0 {
+				current := stack2[len(stack2)-1]
+				stack2 = stack2[:len(stack2)-1]
+				fmt.Println(current.Value)
+				if current.Right != nil {
+					stack1 = append(stack1, *current.Right)
+				}
+				if current.Left != nil {
+					stack1 = append(stack1, *current.Left)
+				}
+			}
+		}
+	}
+}
+
+// Print the binary tree in zig-zag order
+func (tree *GeneralTree) ZigZagOrder() {
+	if tree.Root == nil {
+		return
+	} else {
+		tree.Root.ZigZagOrder()
+	}
+}
+
+func (node *Node) ZigZagOrder() {
+	if node == nil {
+		return
+	} else {
+		stack1 := []Node{*node}
+		stack2 := []Node{}
+		for len(stack1) > 0 || len(stack2) > 0 {
+			for len(stack1) > 0 {
+				current := stack1[len(stack1)-1]
+				stack1 = stack1[:len(stack1)-1]
+				fmt.Println(current.Value)
+				if current.Left != nil {
+					stack2 = append(stack2, *current.Left)
+				}
+				if current.Right != nil {
+					stack2 = append(stack2, *current.Right)
+				}
+			}
+			for len(stack2) > 0 {
+				current := stack2[len(stack2)-1]
+				stack2 = stack2[:len(stack2)-1]
+				fmt.Println(current.Value)
+				if current.Right != nil {
+					stack1 = append(stack1, *current.Right)
+				}
+				if current.Left != nil {
+					stack1 = append(stack1, *current.Left)
+				}
+			}
+		}
+	}
+}
+
+// Print the binary tree in vertical order
+func (tree *GeneralTree) VerticalOrder() {
+	if tree.Root == nil {
+		return
+	} else {
+		tree.Root.VerticalOrder()
+	}
+}
+
+func (node *Node) VerticalOrder() {
+	if node == nil {
+		return
+	} else {
+		queue := []Node{*node}
+		for len(queue) > 0 {
+			current := queue[0]
+			queue = queue[1:]
+			fmt.Println(current.Value)
+			if current.Left != nil {
+				queue = append(queue, *current.Left)
+			}
+			if current.Right != nil {
+				queue = append(queue, *current.Right)
+			}
+		}
+	}
+}
+
+// Print the binary tree in reverse-vertical order
+func (tree *GeneralTree) ReverseVerticalOrder() {
+	if tree.Root == nil {
+		return
+	} else {
+		tree.Root.ReverseVerticalOrder()
+	}
+}
+
+func (node *Node) ReverseVerticalOrder() {
+	if node == nil {
+		return
+	} else {
+		queue := []Node{*node}
+		for len(queue) > 0 {
+			current := queue[0]
+			queue = queue[1:]
+			fmt.Println(current.Value)
+			if current.Right != nil {
+				queue = append(queue, *current.Right)
+			}
+			if current.Left != nil {
+				queue = append(queue, *current.Left)
+			}
+		}
+	}
+}
+
+// Print the binary tree in diagonal order
+func (tree *GeneralTree) DiagonalOrder() {
+	if tree.Root == nil {
+		return
+	} else {
+		tree.Root.DiagonalOrder()
+	}
+}
+
+func (node *Node) DiagonalOrder() {
+	if node == nil {
+		return
+	} else {
+		queue := []Node{*node}
+		for len(queue) > 0 {
+			current := queue[0]
+			queue = queue[1:]
+			fmt.Println(current.Value)
+			if current.Left != nil {
+				queue = append(queue, *current.Left)
+			}
+			if current.Right != nil {
+				queue = append(queue, *current.Right)
+			}
+		}
+	}
+}
+
+// Print the binary tree in reverse-diagonal order
+func (tree *GeneralTree) ReverseDiagonalOrder() {
+	if tree.Root == nil {
+		return
+	} else {
+		tree.Root.ReverseDiagonalOrder()
+	}
+}
+
+func (node *Node) ReverseDiagonalOrder() {
+	if node == nil {
+		return
+	} else {
+		queue := []Node{*node}
+		for len(queue) > 0 {
+			current := queue[0]
+			queue = queue[1:]
+			fmt.Println(current.Value)
+			if current.Right != nil {
+				queue = append(queue, *current.Right)
+			}
+			if current.Left != nil {
+				queue = append(queue, *current.Left)
+			}
+		}
+	}
+}
+
+func main() {
+
 }
