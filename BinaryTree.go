@@ -118,7 +118,6 @@ func (tree *GeneralTree) Search(value interface{}) *Node {
 	}
 }
 
-// Search a node in the binary tree
 func (node *Node) Search(value interface{}) *Node {
 	if node == nil {
 		return nil
