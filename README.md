@@ -27,7 +27,7 @@ type GeneralTree struct {
 
 **Methods:**
 
-```
+```go
 // Insert a new node into the binary tree
 func (tree *GeneralTree) Insert(value interface{})
 func (node *Node) Insert(value interface{})
