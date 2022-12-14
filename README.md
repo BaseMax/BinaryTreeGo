@@ -1,6 +1,6 @@
 # Binary-Tree Go
 
-Implentation of a binary tree in Go.
+Implentation of a binary tree in Go. A Binary Tree is a tree data structure in which each node has at most two children, which are referred to as the left child and the right child. A node with no children is called a leaf node. A node cannot have more than two children.
 
 ## Structure
 
